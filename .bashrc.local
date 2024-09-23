@@ -1,0 +1,8 @@
+export PROJECT_DIR=~/github.com/jmarshrossney/portable-jules
+
+export FCM=$PROJECT_DIR/fcm-2021.05.0
+export ROSE_SITE_CONF_PATH=$PROJECT_DIR/.metomi
+export JULES_ROOT=$PROJECT_DIR/jules
+
+# Add fcm to path
+export PATH=$FCM/bin:$PATH

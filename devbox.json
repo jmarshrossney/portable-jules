@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "packages": [
+    "gfortran@latest",
+    "netcdf@latest",
+    "git@latest",
+    "perl@latest",
+    "perl538Packages.ConfigIniFiles@latest",
+    "perl538Packages.DBDSQLite@latest",
+    "perl538Packages.XMLParser@latest",
+    "perl538Packages.Tk@latest",
+    "subversion@latest",
+    "diffutils@latest",
+    "rsync@latest",
+    "gnumake@latest",
+    "xxdiff@latest",
+    "python@latest",
+    "coreutils@latest",
+    "openssh@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "export PS1='📦 devbox> '",
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

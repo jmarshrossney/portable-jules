@@ -1,0 +1,8 @@
+./jules/
+./fcm-2021.05.0/
+./.metomi/  # contains rose.conf which we probably want to drop
+./workdir/
+
+.envrc  # not currently using direnv
+venv/   # python venv
+
