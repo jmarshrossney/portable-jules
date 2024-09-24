@@ -1,0 +1,16 @@
+&jules_drive
+  data_start  = '2000-01-01 00:00:00',
+  data_end    = '2000-01-08 00:00:00',
+  data_period = 86400,
+
+  file = "/home/joe/github.com/jmarshrossney/portable-jules/workdir/namelists/point/data/met_data.dat",
+
+  nvars  = 8,
+  var    = 'sw_down'  'lw_down'  'tot_rain'  'tot_snow'   't'  'wind'  'pstar'   'q',
+  interp =      'nf'       'nf'        'nf'        'nf'  'nf'    'nf'     'nf'  'nf',
+
+  diff_frac_const = 0.1,
+  t_for_con_rain  = 293.15
+  z1_uv_in = 100
+  z1_tq_in = 100
+/

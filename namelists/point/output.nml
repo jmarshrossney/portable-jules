@@ -1,0 +1,18 @@
+&JULES_OUTPUT
+dump_period=1,
+dump_period_unit='Y',
+nprofiles=1,
+output_dir='/home/joe/github.com/jmarshrossney/portable-jules/workdir/output',
+run_id='joe-test',
+/
+&JULES_OUTPUT_PROFILE
+profile_name='Hourly',
+file_period=0,
+l_land_frac=F,
+output_main_run=T,
+output_initial=T,
+output_period=3600,
+output_type=7*'M',
+nvars=7,
+var= 'precip', 'pstar', 'rad_net', 'tstar', 't_soil', 'cv', 'gpp'
+/
