@@ -16,17 +16,25 @@
     "xxdiff@latest",
     "python@latest",
     "coreutils@latest",
-    "openssh@latest"
+    "openssh@latest",
+    "neovim@latest",
+    "direnv@latest",
   ],
+  "env": {
+    "DEVBOX_PROMPT_MODIFIER": "📦 ",
+    "PROJECT_DIR":            "$PWD",
+  },
   "shell": {
     "init_hook": [
-      "export PS1='📦 devbox> '",
-      "echo 'Welcome to devbox!' > /dev/null"
+      "echo 'Inside the init hook'",
+      "export FCM=$PROJECT_DIR/fcm-2021.05.0",
+      "export JULES_ROOT=$PROJECT_DIR/jules",
+      "export PATH=$FCM/bin:$PATH",
     ],
     "scripts": {
       "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ]
-    }
-  }
+        "echo \"Error: no test specified\" && exit 1",
+      ],
+    },
+  },
 }
