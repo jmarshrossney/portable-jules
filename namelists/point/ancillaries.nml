@@ -1,5 +1,5 @@
 &JULES_FRAC
-file='/home/joe/github.com/jmarshrossney/portable-jules/workdir/namelists/point/data/jules_frac.dat',
+file='/home/joe/github.com/jmarshrossney/portable-jules/namelists/point/data/jules_frac.dat',
 /
 &JULES_SOIL_PROPS
 nvars=9,

@@ -1,6 +1,7 @@
 jules/
 fcm-2021.05.0/
 workdir/
+reference/
 
 # contains rose.conf which we probably want to drop
 .metomi/
@@ -15,3 +16,4 @@ workdir/
 .venv/
 venv
 
+*.ipynb

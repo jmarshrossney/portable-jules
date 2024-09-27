@@ -19,6 +19,8 @@
     "openssh@latest",
     "neovim@latest",
     "direnv@latest",
+    "which@latest",
+    "netcdffortran@latest",
   ],
   "env": {
     "DEVBOX_PROMPT_MODIFIER": "📦 ",
@@ -30,11 +32,10 @@
       "export FCM=$PROJECT_DIR/fcm-2021.05.0",
       "export JULES_ROOT=$PROJECT_DIR/jules",
       "export PATH=$FCM/bin:$PATH",
+      "export JULES_NETCDF_PATH=$PROJECT_DIR/.devbox/nix/profile/default",
+      "source .venv/bin/activate",
     ],
     "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1",
-      ],
     },
   },
 }
