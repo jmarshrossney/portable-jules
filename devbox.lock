@@ -270,8 +270,8 @@
       }
     },
     "git@latest": {
-      "last_modified": "2024-09-12T11:58:09Z",
-      "resolved": "github:NixOS/nixpkgs/280db3decab4cbeb22a4599bd472229ab74d25e1#git",
+      "last_modified": "2024-09-27T09:34:34Z",
+      "resolved": "github:NixOS/nixpkgs/e0f477a570df7375172a08ddb9199c90853c63f0#git",
       "source": "devbox-search",
       "version": "2.46.0",
       "systems": {
@@ -329,12 +329,12 @@
               "default": true
             },
             {
-              "name": "doc",
-              "path": "/nix/store/5r0irlcap11p8wqbdiy9fz1y3pk1mn4n-git-2.46.0-doc"
-            },
-            {
               "name": "debug",
               "path": "/nix/store/x1g0dhpqg1fi4dz20lp2i2h759bdkark-git-2.46.0-debug"
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/5r0irlcap11p8wqbdiy9fz1y3pk1mn4n-git-2.46.0-doc"
             }
           ],
           "store_path": "/nix/store/0l63mqr7qx1asjxfz86j4zbs4758gn98-git-2.46.0"
@@ -1071,8 +1071,8 @@
       }
     },
     "subversion@latest": {
-      "last_modified": "2024-09-12T11:58:09Z",
-      "resolved": "github:NixOS/nixpkgs/280db3decab4cbeb22a4599bd472229ab74d25e1#subversion",
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#subversion",
       "source": "devbox-search",
       "version": "1.14.3",
       "systems": {
@@ -1080,20 +1080,20 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/q17bpzdm5gibx54h8aiimknzpycbrppm-subversion-1.14.3",
+              "path": "/nix/store/r7akfradrg2wzc56mmry77qm06mza9a0-subversion-1.14.3",
               "default": true
             },
             {
               "name": "man",
-              "path": "/nix/store/rzcg38295y6czi0pngrhxc98jp68xqlj-subversion-1.14.3-man",
+              "path": "/nix/store/bfbidspzag4schmpjgw01zwihfb4qz58-subversion-1.14.3-man",
               "default": true
             },
             {
               "name": "dev",
-              "path": "/nix/store/0argizl2wdmlcai1xvzk71i2rr19gybx-subversion-1.14.3-dev"
+              "path": "/nix/store/dr4qqq1vmq4qk1r1za135swwds1zws0c-subversion-1.14.3-dev"
             }
           ],
-          "store_path": "/nix/store/q17bpzdm5gibx54h8aiimknzpycbrppm-subversion-1.14.3"
+          "store_path": "/nix/store/r7akfradrg2wzc56mmry77qm06mza9a0-subversion-1.14.3"
         },
         "aarch64-linux": {
           "outputs": [
@@ -1118,20 +1118,20 @@
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/ljlna8hrx8ic1kmd7sp1zv6hvhk2rqdl-subversion-1.14.3",
+              "path": "/nix/store/3hdnag8zyi1a8k9h59cv7fa9pcgnhjxq-subversion-1.14.3",
               "default": true
             },
             {
               "name": "man",
-              "path": "/nix/store/dkpmmflknm3v84mvf9d7mxiv8wny68v3-subversion-1.14.3-man",
+              "path": "/nix/store/1s7gp89mi5n0s2cjz5252b2qbzv40lss-subversion-1.14.3-man",
               "default": true
             },
             {
               "name": "dev",
-              "path": "/nix/store/xz1vdykl76gnzzckj71f8sr2xvlk5al9-subversion-1.14.3-dev"
+              "path": "/nix/store/wgrrbwbsrn1r3yazr20csdrfri1icfgn-subversion-1.14.3-dev"
             }
           ],
-          "store_path": "/nix/store/ljlna8hrx8ic1kmd7sp1zv6hvhk2rqdl-subversion-1.14.3"
+          "store_path": "/nix/store/3hdnag8zyi1a8k9h59cv7fa9pcgnhjxq-subversion-1.14.3"
         },
         "x86_64-linux": {
           "outputs": [

@@ -29,13 +29,12 @@
   "shell": {
     "init_hook": [
       "echo 'Inside the init hook'",
-      "export FCM=$PROJECT_DIR/fcm-2021.05.0",
+      "export FCM=$PROJECT_DIR/fcm",
       "export JULES_ROOT=$PROJECT_DIR/jules",
       "export PATH=$FCM/bin:$PATH",
       "export JULES_NETCDF_PATH=$PROJECT_DIR/.devbox/nix/profile/default",
       "source .venv/bin/activate",
     ],
-    "scripts": {
-    },
+    "scripts": {},
   },
 }
