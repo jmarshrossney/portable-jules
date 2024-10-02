@@ -2,7 +2,7 @@
 dump_period=1,
 dump_period_unit='Y',
 nprofiles=1,
-output_dir='/home/joe/github.com/jmarshrossney/portable-jules/workdir/output',
+output_dir='/home/joe/github.com/jmarshrossney/portable-jules/workdir/point/outputs',
 run_id='joe-test',
 /
 &JULES_OUTPUT_PROFILE

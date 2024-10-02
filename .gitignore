@@ -1,7 +1,10 @@
-jules/
-fcm-2021.05.0/
-workdir/
+build/
 reference/
+workdir/
+
+# Built from source
+jules/
+fcm/
 
 # contains rose.conf which we probably want to drop
 .metomi/
