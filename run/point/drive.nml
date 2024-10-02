@@ -3,7 +3,7 @@
   data_end    = '2000-02-01 00:00:00',
   data_period = 86400,
 
-  file = "/home/joe/github.com/jmarshrossney/portable-jules/namelists/point/data/met_data.dat",
+  file = "inputs/met_data.dat",
 
   nvars  = 8,
   var    = 'sw_down'  'lw_down'  'tot_rain'  'tot_snow'   't'  'wind'  'pstar'   'q',

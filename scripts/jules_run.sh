@@ -11,14 +11,25 @@ if [ ! -d $1 ]; then
     exit 1
 fi
 
+# NOTE: prefer running within namelist dir since relative paths are more important
+# than flexibility with working dir. 
+# See https://jules-lsm.github.io/latest/building-and-running/running-jules.html
+
 # Hack to get absolute path
 namelist_abspath=$(cd "$1"; pwd)
 echo "Namelist path is $namelist_abspath"
 
-# NOTE: output_dir is hard-coded into output.nml, so the following doesn't work
-#
-#timestamp=$(date +'%Y-%m-%d_%H%M%S')
-#output_dir=$JULES_EXEC_DIR/$timestamp
-#mkdir -p -v $output_dir
+curr_dir=$(pwd)
+cd $namelist_abspath
 
-jules.exe $namelist_abspath
+# Extract output dir (hard-coded into output.nml)
+output_dir=$(grep "output_dir" output.nml | sed -E "s/output_dir='([^']*)'.*/\1/")
+
+# TODO: potentially prevent overwrite of data if output_dir already exists
+
+# Create output_dir if it doesn't exist already
+mkdir -p -v $output_dir
+
+jules.exe 
+
+cd $curr_dir
