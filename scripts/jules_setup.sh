@@ -11,7 +11,7 @@ curr_dir=$PWD
 root=$DEVBOX_PROJECT_ROOT
 tmpdir=$root/tmp
 
-mkdir -p -v $tmpdir
+mkdir -v $tmpdir
 cd $tmpdir
 
 # Download and extract fcm if it doesn't already exist
@@ -45,4 +45,4 @@ fi
 
 cd $curr_dir
 
-rmdir -p -v $tmpdir
+rmdir -v $tmpdir
