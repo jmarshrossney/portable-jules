@@ -32,9 +32,14 @@ certifi==2024.8.30
     # via
     #   httpcore
     #   httpx
+    #   netcdf4
     #   requests
 cffi==1.17.1
     # via argon2-cffi-bindings
+cftime==1.6.4
+    # via
+    #   nc-time-axis
+    #   netcdf4
 charset-normalizer==3.3.2
     # via requests
 comm==0.2.2
@@ -163,7 +168,9 @@ markupsafe==2.1.5
     #   jinja2
     #   nbconvert
 matplotlib==3.9.2
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   nc-time-axis
 matplotlib-inline==0.1.7
     # via
     #   ipykernel
@@ -186,8 +193,12 @@ nbformat==5.10.4
     #   jupytext
     #   nbclient
     #   nbconvert
+nc-time-axis==1.4.1
+    # via -r requirements.in
 nest-asyncio==1.6.0
     # via ipykernel
+netcdf4==1.7.1.post2
+    # via -r requirements.in
 notebook==7.2.2
     # via jupyter
 notebook-shim==0.2.4
@@ -197,9 +208,13 @@ notebook-shim==0.2.4
 numpy==2.1.1
     # via
     #   -r requirements.in
+    #   cftime
     #   contourpy
     #   matplotlib
+    #   nc-time-axis
+    #   netcdf4
     #   pandas
+    #   xarray
 overrides==7.7.0
     # via jupyter-server
 packaging==24.1
@@ -211,8 +226,11 @@ packaging==24.1
     #   jupytext
     #   matplotlib
     #   nbconvert
+    #   xarray
 pandas==2.2.3
-    # via -r requirements.in
+    # via
+    #   -r requirements.in
+    #   xarray
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
@@ -351,6 +369,8 @@ websocket-client==1.8.0
     # via jupyter-server
 widgetsnbextension==4.0.13
     # via ipywidgets
+xarray==2024.9.0
+    # via -r requirements.in
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools

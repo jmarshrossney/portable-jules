@@ -20,3 +20,4 @@ fcm/
 venv
 
 *.ipynb
+.ipynb_checkpoints/

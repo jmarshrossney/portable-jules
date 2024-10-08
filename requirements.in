@@ -4,3 +4,6 @@ matplotlib
 ipython
 jupyter
 jupytext
+netCDF4
+xarray
+nc-time-axis
