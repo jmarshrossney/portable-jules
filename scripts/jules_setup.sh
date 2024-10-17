@@ -31,6 +31,7 @@ if [ ! -d $JULES_ROOT ]; then
 
     echo "Downloading JULES"
 
+    # NOTE: this downloads the most recent revision. Consider switching to @vn7.5
     fcm co https://code.metoffice.gov.uk/svn/jules/main/trunk jules
 
     # NOTE: need to add the -fallow-argument-mismatch -w flags so that gfortran doesn't complain
