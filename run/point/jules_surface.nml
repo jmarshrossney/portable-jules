@@ -1,5 +1,0 @@
-&JULES_SURFACE
-cor_mo_iter=3,
-l_epot_corr=.true.,
-l_point_data=.false.,
-/
