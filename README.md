@@ -38,12 +38,17 @@ devbox run jules-setup
 # Build JULES
 devbox run jules-build
 
-# Run JULES with the configuration provided in run/point
-devbox run jules-run run/point
+# Run JULES with the configuration provided in run/loobos
+devbox run jules-run run/loobos
 
 # (Work in progress!) Analyse the outputs
 # devbox run jupyterlab  
 ```
+
+These steps have been tested and found to succeed on the following platforms:
+
+- Ubuntu 22.04
+- Datalabs
 
 
 ## What's the point?
@@ -52,7 +57,7 @@ The majority of the available documentation for JULES assumes that the user inte
 The fact that this assumption reflects the needs of the majority of users is clearly self-perpetuating, and there seems to be a growing appreciation that this accessibility barrier is a problem.
 
 JULES is ultimately 'just' a FORTRAN-90 model, and it ought to be straightforward to build and run a simple simulation on a standard desktop running a Unix-based OS.
-In fact the [technical documentation](https://jules-lsm.github.io/latest/index.html) can get you most of the way there, provided you're prepared for a bit of trial-and-error.
+In fact the [technical documentation](https://jules-lsm.github.io/latest/index.html) can get you most of the way there, provided you're prepared for a bit of trial-and-error (and keep in mind that the documentation is incomplete and wrong in places).
 
 Of course, the scientific value of these simulations will be minimal, but that is not the point.
 The point is to strip away the abstractions and play around with the base model - to have fun and learn!
@@ -63,19 +68,31 @@ The point is to strip away the abstractions and play around with the base model 
 ### Low-hanging fruit
 
 - [ ] Tidy up the devbox.json - not all of these packages are strictly needed
-- [ ] Merge the namelist files into one
-- [ ] Find a simple but meaningful input configuration
+- [x] Find a simple but meaningful input configuration (Loobos)
 - [ ] User configuration (via `direnv`?) for things like the version of FCM and JULES
-- [ ] Example notebooks which run JULES and plot/analyse outputs
 - [ ] Expand on the 'getting started' instructions using the GitHub Wiki, including instructions for DataLabs users
 - [ ] Add some QOL improvements when running in `--pure` mode, e.g. aliases for `nvim`.
+
+
+### Towards a set of tutorial notebooks
+
+A tutorial based on Loobos:
+
+- [ ] Example notebooks which run JULES and plot/analyse outputs
+- [ ] Update the Loobos dataset with more recent data from [here](https://maq-observations.nl/loobos/)
+- [ ] Look at previous Loobos tutorials - what actual science do they look at?
+
+A tutorial based elsewhere in the world (Africa?) (**Help wanted!**)
+
+- [ ] Find (and understand) a suitable dataset and configuration
+- [ ] Work with others to design a tutorial with some meaningful science.
+
 
 ### Broader aims
 
 - The configuration via FORTRAN namelists is very brittle. Consider approaches for improving reproducibility, including dependency, configuration and data management & version control
 - Making it easy to programmatically modify parameters and input data for e.g. sensitivity analyses, generating training data for statistical models etc
 - Develop a containerised approach that reduces discontinuity when scaling up to HPC systems (via singularity)
-- Develop some tutorials aimed at familiarising new users with the code
 
 
 ## Notes
