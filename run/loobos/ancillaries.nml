@@ -10,7 +10,12 @@ file='inputs/tile_fractions.dat',
   const_z=T,
 /
 
-&JULES_TOP /
+&JULES_TOP
+  nvars=3,
+  var	    = 'fexp'  'ti_mean'  'ti_sig',
+  use_file  =     F          F         F,
+  const_val =   1.0        6.0       2.0,
+/
 
 &JULES_AGRIC /
 
@@ -21,3 +26,4 @@ file='inputs/tile_fractions.dat',
 &JULES_CO2
 co2_mmr=0.0005941,
 /
+
