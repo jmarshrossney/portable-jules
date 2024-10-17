@@ -25,21 +25,21 @@ curl -fsSL https://get.jetify.com/devbox | bash
 git clone https://github.com/jmarshrossney/portable-jules.git
 cd portable-jules
 
-# Enter an isolated (pure) devbox shell and download packages
-devbox shell --pure
+# Download packages
+devbox install
 
 # Test that everything has worked
-devbox run hello world
+devbox run hello
 
 # Download FCM and JULES
 # NOTE: this step requires MOSRS credentials
-devbox run jules-setup
+devbox run setup
 
 # Build JULES
-devbox run jules-build
+devbox run build
 
 # Run JULES with the configuration provided in run/loobos
-devbox run jules-run run/loobos
+devbox run jules run/loobos
 
 # (Work in progress!) Analyse the outputs
 # devbox run jupyterlab  

@@ -31,13 +31,13 @@
       "export JULES_NETCDF_PATH=$DEVBOX_PROJECT_ROOT/.devbox/nix/profile/default",
       "export PATH=$JULES_BUILD_DIR/build/bin:$FCM_ROOT/bin:$PATH",
       "echo 'Activating the python virtual environment in .venv'",
-      "source .venv/bin/activate",
+      ". $DEVBOX_PROJECT_ROOT/.venv/bin/activate",
     ],
     "scripts": {
-      "hello":       "bash $DEVBOX_PROJECT_ROOT/scripts/hello.sh",
-      "jules-setup": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_setup.sh",
-      "jules-build": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_build.sh",
-      "jules-run":   "bash $DEVBOX_PROJECT_ROOT/scripts/jules_run.sh $1",
+      "hello": "bash $DEVBOX_PROJECT_ROOT/scripts/hello.sh",
+      "setup": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_setup.sh",
+      "build": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_build.sh",
+      "jules": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_run.sh $1",
     },
   },
 }

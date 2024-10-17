@@ -7,18 +7,12 @@ roses/
 jules/
 fcm/
 
-# contains rose.conf which we probably want to drop
-.metomi/
-
-# not currently using direnv
-.envrc
-
 # devbox configuration
 .devbox/
 
 # python venv
 .venv/
-venv
 
+# notebooks
 *.ipynb
 .ipynb_checkpoints/
