@@ -10,7 +10,7 @@
     "neovim@latest",
     "netcdf@latest",
     "netcdffortran@latest",
-    "perl@latest",
+    "perl538@latest",
     "perl538Packages.ConfigIniFiles@latest",
     "perl538Packages.DBDSQLite@latest",
     "perl538Packages.XMLParser@latest",
