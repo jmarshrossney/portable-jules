@@ -52,6 +52,8 @@ devbox run loobos
 
 ## Usage
 
+### Basic
+
 The simplest way to run a JULES simulation using `portable-jules` is to run the following in the repository root,
 
 ```bash
@@ -59,6 +61,7 @@ devbox run jules path/to/namelist_dir
 ```
 
 Under the hood, this will `cd` to `namelist_dir` and run `jules.exe > stdout.log 2> stderr.log`.
+(See `scripts/jules_run.sh` for further details.)
 
 One can also specify an alternative working directory using the `-d` flag,
 
@@ -70,15 +73,30 @@ devbox run jules -d path/to/exec_dir path/to/namelist_dir
 > All relative paths specified in the namelist (`.nml`) files are relative to the working directory, _not_ the namelist file itself.
 
 
+### Parallel
+
+It is possible to fire off several JULES runs at once using [GNU Parallel](https://www.gnu.org/software/parallel/) by providing multiple namelist directories,
+
+```bash
+# Specify individual namelist directories...
+devbox run jules path/to/namelists_1 path/to/namelists_2 ...
+
+# ...or use a wildcard
+devbox run jules path/to/dir_of_namelist_dirs/*
+```
+
+This is useful for running large ensembles of 1+1 dimensional 'point' simulations, which includes gridded simulations that are completely decoupled in the spatial dimensions.
+
+
+### In other projects
+
 To execute the `devbox run jules` command from a different directory, one can specifiy the devbox config explicitly, as in
 
 ```bash
 devbox run -c path/to/portable-jules/devbox.json jules -d path/to/namelist_dir
 ```
 
-To do: add link to example of running this from a Jupyter notebook
-
-See `scripts/jules_run.sh` for further details.
+**To do:** add link to example of running this from a Jupyter notebook.
 
 
 ## What's the point?
