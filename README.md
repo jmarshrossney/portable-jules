@@ -2,9 +2,10 @@
 
 The [Joint UK Land Environment Simulator](https://jules.jchmr.org/) is a [land surface model](https://en.wikipedia.org/wiki/Land_surface_models_(climate)) that has been developed over the last 20 years by a wide community of UK researchers coordinated by the [Met Office](https://www.metoffice.gov.uk/) and the [Centre for Ecology Hydrology](https://www.ceh.ac.uk/).
 
-This repository currently serves to document progress towards the development of some minimal, pedagogical examples of JULES simulations that can be run on a typical desktop computer running a Unix-based OS, or on services such as [DataLabs](https://datalab.datalabs.ceh.ac.uk/).
+This repository contains tools that make it easy to run JULES on a typical personal computer running a Unix-based OS, or on cloud-based services such as [DataLabs](https://datalab.datalabs.ceh.ac.uk/).
 
-**Health warning:** I have zero prior familiarity with JULES and have limited knowledge of FORTRAN. My contribution here is to demonstrate a means of making JULES more portable, and I am learning about how the code works as I go.
+> [!WARNING]
+> I have no prior familiarity with JULES or land surface science, and limited knowledge of FORTRAN. My contribution here is to demonstrate a means of making JULES more portable.
 
 
 ## Quickstart
@@ -38,17 +39,43 @@ devbox run setup
 # Build JULES
 devbox run build
 
-# Run JULES with the configuration provided in examples/loobos
-devbox run jules examples/loobos
+# Confirm that jules.exe exists in $PATH
+# (should return /path/to/portable-jules/build/build/bin/jules.exe)
+devbox run which jules.exe
 
-# (Work in progress!) Analyse the outputs
-# devbox run jupyterlab  
+# Run the Loobos example
+devbox run loobos
 ```
 
-These steps have been tested and found to succeed on the following platforms:
+## Usage
 
-- Ubuntu 22.04
-- Datalabs
+The simplest way to run a JULES simulation using `portable-jules` is to run the following in the repository root,
+
+```bash
+devbox run jules path/to/namelist_dir
+```
+
+Under the hood, this will `cd` to `namelist_dir` and run `jules.exe > stdout.log 2> stderr.log`.
+
+One can also specify an alternative working directory using the `-d` flag,
+
+```bash
+devbox run jules -d path/to/exec_dir path/to/namelist_dir
+```
+
+> [!TIP]
+> All relative paths specified in the namelist (`.nml`) files are relative to the working directory, _not_ the namelist file itself.
+
+
+To execute the `devbox run jules` command from a different directory, one can specifiy the devbox config explicitly, as in
+
+```bash
+devbox run -c path/to/portable-jules/devbox.json jules -d path/to/namelist_dir
+```
+
+To do: add link to example of running this from a Jupyter notebook
+
+See `scripts/jules_run.sh` for further details.
 
 
 ## What's the point?
@@ -61,6 +88,14 @@ In fact the [technical documentation](https://jules-lsm.github.io/latest/index.h
 
 Of course, the scientific value of these simulations will be minimal, but that is not the point.
 The point is to strip away the abstractions and play around with the base model - to have fun and learn!
+
+
+## Tested platforms
+
+These steps have been tested and found to succeed on the following platforms:
+
+- Ubuntu 22.04
+- Datalabs
 
 
 ## To do
@@ -95,6 +130,6 @@ A tutorial based elsewhere in the world (Africa?) (**Help wanted!**)
 - Develop a containerised approach that reduces discontinuity when scaling up to HPC systems (via singularity)
 
 
-## Notes
+### Ownership
 
-Work done while at UKCEH - repository will be transferred to [NERC-CEH](https://github.com/NERC-CEH) if/when it becomes useful.
+This work was done while at UKCEH - repository will be transferred to [NERC-CEH](https://github.com/NERC-CEH) if/when it becomes useful.
