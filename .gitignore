@@ -1,16 +1,20 @@
-build/
-reference/
-run/**/outputs
-roses/
-
-# Built from source
-jules/
-fcm/
-
 # devbox configuration
 .devbox/
 
-# python venv
+# JULES/FCM source and build
+jules/
+fcm/
+build/
+
+# Computed outputs from examples
+examples/**/outputs
+stdout.log
+stderr.log
+
+# Developer workbench
+workbench/
+
+# python virtual environment
 .venv/
 
 # notebooks

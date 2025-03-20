@@ -37,7 +37,7 @@
       "hello": "bash $DEVBOX_PROJECT_ROOT/scripts/hello.sh",
       "setup": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_setup.sh",
       "build": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_build.sh",
-      "jules": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_run.sh $1",
+      "jules": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_run.sh $@",
     },
   },
 }

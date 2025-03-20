@@ -38,8 +38,8 @@ devbox run setup
 # Build JULES
 devbox run build
 
-# Run JULES with the configuration provided in run/loobos
-devbox run jules run/loobos
+# Run JULES with the configuration provided in examples/loobos
+devbox run jules examples/loobos
 
 # (Work in progress!) Analyse the outputs
 # devbox run jupyterlab  
