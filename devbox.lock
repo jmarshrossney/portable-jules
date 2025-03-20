@@ -420,6 +420,34 @@
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
       "resolved": "github:NixOS/nixpkgs/3549532663732bfd89993204d40543e9edaec4f2?lastModified=1742272065&narHash=sha256-ud8vcSzJsZ%2FCK%2Br8%2Fv0lyf4yUntVmDq6Z0A41ODfWbE%3D"
     },
+    "glibcLocales@latest": {
+      "last_modified": "2025-03-11T17:52:14Z",
+      "resolved": "github:NixOS/nixpkgs/0d534853a55b5d02a4ababa1d71921ce8f0aee4c#glibcLocales",
+      "source": "devbox-search",
+      "version": "2.40-66",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/b45n93q253ay9plg2ckh8a9bihifjwid-glibc-locales-2.40-66",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/b45n93q253ay9plg2ckh8a9bihifjwid-glibc-locales-2.40-66"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/hgybbbzg778wasmw5g1hzm7a8n4wwd5h-glibc-locales-2.40-66",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/hgybbbzg778wasmw5g1hzm7a8n4wwd5h-glibc-locales-2.40-66"
+        }
+      }
+    },
     "gnumake@latest": {
       "last_modified": "2025-03-17T10:12:08Z",
       "resolved": "github:NixOS/nixpkgs/096478927c360bc18ea80c8274f013709cf7bdcd#gnumake",
@@ -701,6 +729,90 @@
             }
           ],
           "store_path": "/nix/store/b4hazryvspcy9vymdh68m1r6zdnfp6ly-openssh-9.9p2"
+        }
+      }
+    },
+    "parallel@latest": {
+      "last_modified": "2025-03-16T23:54:35Z",
+      "resolved": "github:NixOS/nixpkgs/5d9b5431f967007b3952c057fc92af49a4c5f3b2#parallel",
+      "source": "devbox-search",
+      "version": "20250222",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/j3jlnzjv6hn4kmn6yxsj9qrfp7xdf13c-parallel-20250222",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/4afrkakwi9ysrz6654mdglnisc37wm8a-parallel-20250222-man",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/iaqxdinm4n22qlycbkl5mg8vwlgy05fv-parallel-20250222-doc"
+            }
+          ],
+          "store_path": "/nix/store/j3jlnzjv6hn4kmn6yxsj9qrfp7xdf13c-parallel-20250222"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gvsrc2jwxv3asznb4makxxyyzyvpvshc-parallel-20250222",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/5fc0d8amvrrxw3z0rivddjypbydc48k8-parallel-20250222-man",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/v4sr7729lpx094a343yjpzcq2z5wm4s1-parallel-20250222-doc"
+            }
+          ],
+          "store_path": "/nix/store/gvsrc2jwxv3asznb4makxxyyzyvpvshc-parallel-20250222"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/n025fkdla1iacmsfvwyahw4jdy2sx20k-parallel-20250222",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/5jsfi0msi1zzbj2ahjcnkdfszjgcr3dj-parallel-20250222-man",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/5a7wc02aqr5nv5my623qsf8k061dq17s-parallel-20250222-doc"
+            }
+          ],
+          "store_path": "/nix/store/n025fkdla1iacmsfvwyahw4jdy2sx20k-parallel-20250222"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/31k9pknx5fk4qbfax4nxvm3d87qs4gyf-parallel-20250222",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/lfd587va71fp8aq6m2yxfw3g8l41zq5s-parallel-20250222-man",
+              "default": true
+            },
+            {
+              "name": "doc",
+              "path": "/nix/store/2bmbq3zl4glx911i5yihhymzhgirckyy-parallel-20250222-doc"
+            }
+          ],
+          "store_path": "/nix/store/31k9pknx5fk4qbfax4nxvm3d87qs4gyf-parallel-20250222"
         }
       }
     },

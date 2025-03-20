@@ -6,11 +6,13 @@
     "diffutils@latest",
     "git@latest",
     "gfortran@latest",
+    "glibcLocales@latest",
     "gnumake@latest",
     "neovim@latest",
     "netcdf@latest",
     "netcdffortran@latest",
     "openssh@latest",
+    "parallel@latest",
     "perl538@latest",
     "perl538Packages.ConfigIniFiles@latest",
     "perl538Packages.DBDSQLite@latest",
@@ -29,14 +31,16 @@
       "export JULES_NETCDF=netcdf",
       "export JULES_NETCDF_PATH=$DEVBOX_PROJECT_ROOT/.devbox/nix/profile/default",
       "export PATH=$JULES_BUILD_DIR/build/bin:$FCM_ROOT/bin:$PATH",
-      "echo 'Activating the python virtual environment in .venv'",
-      ". $DEVBOX_PROJECT_ROOT/.venv/bin/activate",
     ],
     "scripts": {
       "hello": "bash $DEVBOX_PROJECT_ROOT/scripts/hello.sh",
       "setup": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_setup.sh",
       "build": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_build.sh",
       "jules": "bash $DEVBOX_PROJECT_ROOT/scripts/jules_run.sh $@",
+      "loobos": [
+        "bash $DEVBOX_PROJECT_ROOT/scripts/jules_run.sh -d $DEVBOX_PROJECT_ROOT/examples/loobos $DEVBOX_PROJECT_ROOT/examples/loobos/config",
+        "echo \"yay\""
+      ]
     },
   },
 }
