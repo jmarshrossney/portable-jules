@@ -50,5 +50,5 @@ cd $curr_dir
 rmdir -v $tmpdir
 
 # Install Python packages
-python -m pip install --upgrade pip -q
-python -m pip install -r $DEVBOX_PROJECT_ROOT/requirements.txt -q
+python -m pip install --upgrade pip
+python -m pip install -r $DEVBOX_PROJECT_ROOT/requirements.txt
