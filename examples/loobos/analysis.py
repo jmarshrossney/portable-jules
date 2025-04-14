@@ -22,12 +22,12 @@ def main() -> None:
 
     fig, ax = plt.subplots()
     tstar.plot.line(x="time", ax=ax)
-    fig.savefig(here / "tstar.png")
+    fig.savefig(plot_dir / "tstar.png")
 
     fig, ax = plt.subplots()
     tstar.to_dataframe().drop(["latitude", "longitude"], axis=1).xs(1, level="tile").rolling(window="24h").mean().plot(ax=ax, label="daily average")
     ax.legend()
-    fig.savefig(here / "tstar_rolling.png")
+    fig.savefig(plot_dir / "tstar_rolling.png")
 
 
 if __name__ == "__main__":
