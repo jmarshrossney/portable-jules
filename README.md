@@ -13,21 +13,31 @@ This repository contains tools that make it easy to run JULES on a typical perso
 
 ## Quickstart
 
-Before doing anything else you need to request access to the JULES source code by filling out [this form](https://jules-lsm.github.io/access_req/JULES_access.html). 
+Before doing anything else you need to request access to the JULES source code by filling out [this form](https://jules-lsm.github.io/access_req/JULES_access.html). You should then be provided with a Met Office Science Repository Service (MOSRS) username and password.
 
-The following steps assume you are executing commands in a bash shell with `curl` and `git` already installed. Please execute each of them individually rather than copy-pasting the whole thing.
+Clone the repository and navigate to the repository root directory:
+
+```sh
+git clone https://github.com/jmarshrossney/portable-jules.git
+cd portable-jules
+```
+
+Next, create a file called `.env` in the root of the repository containing the following lines:
+
+```env
+# file .env
+MOSRS_USERNAME="<your MOSRS username>"
+MOSRS_PASSWORD="<your MOSRS password>"
+```
+
+Replace `<your MOSRS username>` and `<your MOSRS password>` with, you guessed it, your MOSRS username and password.
+
+The following steps assume you are executing commands in a bash shell with `curl` (and `git`) already installed. Please execute each of them individually rather than copy-pasting the whole thing.
 
 
 ```bash
-# Install Nix
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-
 # Install devbox
 curl -fsSL https://get.jetify.com/devbox | bash
-
-# Clone the repository
-git clone https://github.com/jmarshrossney/portable-jules.git
-cd portable-jules
 
 # Download packages
 devbox install
@@ -117,6 +127,58 @@ These steps have been tested and found to succeed on the following platforms:
 
 - Ubuntu 22.04
 - Datalabs
+
+
+## Revisions
+
+By default, `devbox run setup` will download the most recent revision of JULES (i.e. `HEAD`). However, one can specify a revision by passing a single positional argument, as in `devbox run setup <rev>`.
+
+The following (copied from [here](https://code.metoffice.gov.uk/trac/jules/browser/main)) maps named versions of JULES to revision identifiers. To download version 7.8, for example, one would do `devbox run setup 29791`.
+
+```
+vn3.1 = 11
+vn3.2 = 27
+vn3.3 = 52
+vn3.4 = 65
+vn3.4.1 = 67
+vn4.0 = 101
+vn4.1 = 131
+vn4.2 = 793
+vn4.3 = 1511
+vn4.3.1 = 1709
+vn4.3.2 = 1978
+vn4.4 = 2461
+vn4.5 = 3197
+vn4.6 = 4285
+vn4.7 = 5320
+vn4.8 = 6925
+vn4.9 = 8484
+vn5.0 = 9522
+vn5.1 = 10836
+vn5.2 = 12251
+vn5.3 = 13249
+vn5.4 = 14197
+vn5.5 = 15100
+vn5.6 = 15927
+vn5.7 = 16960
+vn5.8 = 17881
+vn5.9 = 18812
+vn6.0 = 19395
+vn6.1 = 20512
+vn6.2 = 21512
+vn6.3 = 22411
+vn7.0 = 23518
+vn7.1 = 24383
+vn7.2 = 25256
+vn7.3 = 25896
+vn7.4 = 26897
+vn7.5 = 28091
+vn7.6 = 28692
+vn7.7 = 29181
+vn7.8 = 29791
+vn7.8.1 = 29986
+vn7.9 = 30414
+```
 
 
 ## To do
