@@ -23,3 +23,6 @@ workbench/
 # notebooks
 *.ipynb
 .ipynb_checkpoints/
+
+# Credentials file
+.env
