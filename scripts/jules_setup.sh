@@ -6,6 +6,14 @@ if [[ ! $DEVBOX_SHELL_ENABLED -eq 1 ]]; then
     exit 1
 fi
 
+# Check that credentials have been set
+if [ -z "$MOSRS_USERNAME" ] || [ -z "$MOSRS_PASSWORD" ]; then
+    echo "Must set \$MOSRS_USERNAME and \$MOSRS_PASSWORD (in .env)!"
+    exit 1
+fi
+
+REV=${1:-"HEAD"}
+
 curr_dir=$PWD
 tmpdir=$DEVBOX_PROJECT_ROOT/tmp
 
@@ -32,9 +40,10 @@ if [ ! -d $JULES_ROOT ]; then
 
     echo "Downloading JULES"
 
-    # TODO: this downloads the most recent revision. Consider switching to @vn7.5
-    # See https://github.com/jmarshrossney/portable-jules/issues/3
-    fcm co https://code.metoffice.gov.uk/svn/jules/main/trunk jules
+    svn checkout --non-interactive --no-auth-cache  \
+	    --username "$MOSRS_USERNAME" --password "$MOSRS_PASSWORD" \
+	    https://code.metoffice.gov.uk/svn/jules/main/trunk --revision "$REV" \
+	    jules
 
     # NOTE: need to add the -fallow-argument-mismatch -w flags so that gfortran doesn't complain
     printf '\n# We are forced to suppress a gfortran error about non-standard code\nbuild.prop{fc.flags}[jules/src/io/dump/read_dump_mod.F90] = $fflags_common -fallow-argument-mismatch -w' >> jules/etc/fcm-make/platform/custom.cfg
@@ -50,5 +59,5 @@ cd $curr_dir
 rmdir -v $tmpdir
 
 # Install Python packages
-python -m pip install --upgrade pip
-python -m pip install -r $DEVBOX_PROJECT_ROOT/requirements.txt
+#python -m pip install --upgrade pip
+#python -m pip install -r $DEVBOX_PROJECT_ROOT/requirements.txt
