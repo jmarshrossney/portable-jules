@@ -8,7 +8,6 @@
     "gfortran@latest",
     "glibcLocales@latest",
     "gnumake@latest",
-    "neovim@latest",
     "netcdf@latest",
     "netcdffortran@latest",
     "openssh@latest",
