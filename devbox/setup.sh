@@ -29,7 +29,7 @@ USERNAME="${MOSRS_USERNAME:-__MISSING__}"
 PASSWORD="${MOSRS_PASSWORD:-__MISSING__}"
 
 # Attempt to read from command-line args
-while getopts "r:u:p" opt; do
+while getopts "r:u:p:" opt; do
     case $opt in
         r)
             REVISION=$OPTARG
@@ -52,7 +52,7 @@ while getopts "r:u:p" opt; do
 done
 
 # Check that MOSRS credentials have been set
-if [ "$USERNAME" = "__MISSING__" ] || [ -z "$PASSWORD" = "__MISSING__" ]; then
+if [ "$USERNAME" = "__MISSING__" ] || [ "$PASSWORD" = "__MISSING__" ]; then
     echo "Must provide a username and password!"
     exit 1
 fi
