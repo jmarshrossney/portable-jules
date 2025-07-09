@@ -190,18 +190,80 @@ This solution is to use a [_secret mount_](https://docs.docker.com/build/buildin
 docker build --secret id=.env -t jules:vn7.9 .
 ```
 
-The contents of `.env` are then accessible using: `RUN --mount=type=secret,id=.env,target=/app/.env` (the `WORKDIR` is `/app` at this point).
+The contents of `.env` are then accessible using: `RUN --mount=type=secret,id=.env,target=/devbox/.env` (the `WORKDIR` is `/devbox` at this point).
 
-The entry point for the container is (currently) `devbox run`, so to replicate `devbox run jules` using this container you would execute `docker run jules:vn7.9 jules`. I will probably change this soon (having `devbox run jules` as the entry point makes debugging hard, but there's probably a very obvious workaround).
-
-JULES still needs to load the namelists and inputs, and we did not include these in the container itself. To run the container you need to link the run directory and the namelists directory to the container filesystem. You can mount the run directory (assuming the namelists directory is below it) to an _unused_ location in the container filesystem (`/app/run` in this example).
+JULES still needs to load the namelists and inputs, and we did not include these in the container itself. To run the container you need to link the run directory and the namelists directory to the container filesystem. You can mount the run directory (assuming the namelists directory is below it) to an _unused_ location in the container filesystem (`/devbox/run` in this example).
 
 ```sh
 cd examples/loobos
-docker run -v "$(pwd)":/app/run jules:vn7.9 jules -d run run/config
+docker run -v "$(pwd)":/devbox/run jules:vn7.9 -d run run/config
 ```
 
 It will speed things up if the directory being linked is not too large, i.e. if the run directory (`examples/loobos` above) only contains the necessary inputs and namelists, and not a bunch of other stuff. 
+
+
+## uDocker
+
+udocker somewhat advertises itself as a drop-in replacement for docker that does not require root privileges. In practice it seems to have quite a few quirks.
+
+1. Build a container image as usual, but using a different dockerfile (`Dockerfile.u`)
+
+```sh
+docker build --secret id=.env -f Dockerfile.u -t jules .
+```
+
+> [!TIP]
+> Funnily enough, this container will not run with Docker, since the workdir is `/` instead of `/root` as it is when run with udocker.
+> I do not know why this is. To run it with docker, use `--workdir=/root`.
+
+2. Save the image to a tar.gz
+
+```sh
+docker save jules | gzip > jules.tar.gz
+```
+
+3. Load into udocker - create an image called `jules`
+
+```sh
+uv run udocker load -i jules.tar.gz jules
+```
+NOTE: this can 'silently' fail. The output should look something like this:
+
+```sh
+❯ uv run udocker load -i devbox-root-user.tar.gz devbox-root-user
+Info: adding layer: sha256:0b99a6bf584d36ef5ed44ae402f1e6318a822dd0559786a02e0aca6b83807402
+...
+Info: adding layer: sha256:95a2005e07300a41ffbbb0aa02d8974f8f0c0331285db444288cc15da96d8613
+['jules:latest']
+```
+
+and not this:
+
+```sh
+❯ uv run udocker load -i minimal.tar.gz minimal
+Info: adding layer: sha256:f92d940c8ae8f16b5dbf079a4e21fefb5a1b4913ca076370e558dd0ebdba98ac
+...
+Info: adding layer: sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef
+[]
+```
+
+4. Create a container (you can run the image directly but it will create a container each time which is a waste of time and resources)
+
+```sh
+uv run udocker create --name=jules jules
+```
+
+5. Run, while mounting the directories in a very specific way.
+
+```sh
+❯ uv run udocker run -v=$(pwd)/examples/loobos:/root/run jules -d /root/run /root/run/config
+```
+
+Note that the working directory at run time will be `/root/`. You should bind the run directory to a new location in the container (e.g. `/root/run`) and then pass the absolute paths in the container as arguments, `-d RUN_DIR NAMELISTS_DIR`.
+
+It's pretty messy and very brittle, but just getting this to work at all took a LONG time.
+
+
 
 ## To do
 
