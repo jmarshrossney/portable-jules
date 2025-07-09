@@ -1,16 +1,3 @@
-# devbox configuration
-.devbox/
-
-# JULES/FCM source and build
-jules/
-fcm/
-build/
-
-# Computed outputs from examples
-examples/**/outputs
-stdout.log
-stderr.log
-
 # Developer workbench
 workbench/
 
@@ -30,3 +17,8 @@ workbench/
 # container images
 *.tar
 *.tar.gz
+__pycache__/
+*.egg-info
+
+*.ipynb
+workbench/
