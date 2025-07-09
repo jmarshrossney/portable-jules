@@ -1,9 +1,10 @@
-# Check inside devbox shell
+# Warn user if not in devbox shell
 if [[ ! $DEVBOX_SHELL_ENABLED -eq 1 ]]; then
-    echo "Value of \$DEVBOX_SHELL_ENABLED is: $DEVBOX_SHELL_ENABLED"
-    echo "This script must be run inside a devbox shell"
-    exit 1
+    echo "WARNING: Running outside devbox shell. Did you mean to run this script with 'devbox run'?"
 fi
+
+# Check that jules.exe exists
+jules_exe=$(command -v jules.exe) || { echo "ERROR: jules.exe not found"; exit 1; }
 
 # If -d is provided, it *needs* to be the first argument!
 for arg in "${@:2}"; do
@@ -61,7 +62,7 @@ run_jules() {
     mkdir -p -v "$output_dir"
 
     echo "Running jules.exe $namelist_abspath"
-    jules.exe $namelist_abspath > stdout.log 2>stderr.log
+    "$jules_exe" "$namelist_abspath" > stdout.log 2>stderr.log
 
     # Echo any errors to stdout
     if grep -q "ERROR" stderr.log; then

@@ -32,10 +32,10 @@
       "export PATH=$JULES_BUILD_DIR/build/bin:$FCM_ROOT/bin:$PATH",
     ],
     "scripts": {
-      "hello": "bash $DEVBOX_PROJECT_ROOT/scripts/hello.sh",
-      "setup": "bash $DEVBOX_PROJECT_ROOT/scripts/setup.sh $@",
-      "jules": "bash $DEVBOX_PROJECT_ROOT/scripts/jules.sh $@",
-      "loobos": "bash $DEVBOX_PROJECT_ROOT/scripts/jules.sh -d $DEVBOX_PROJECT_ROOT/examples/loobos $DEVBOX_PROJECT_ROOT/examples/loobos/config",
+      "hello": "test $DEVBOX_SHELL_ENABLED -eq 1 && echo \"Hello $USER\"",
+      "setup": "bash $DEVBOX_PROJECT_ROOT/setup.sh $@",
+      "jules": "bash $DEVBOX_PROJECT_ROOT/jules.sh $@",
+      "loobos": "bash $DEVBOX_PROJECT_ROOT/jules.sh -d $DEVBOX_PROJECT_ROOT/examples/loobos $DEVBOX_PROJECT_ROOT/examples/loobos/config",
     },
   },
 }
