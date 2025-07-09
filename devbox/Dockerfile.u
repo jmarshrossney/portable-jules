@@ -1,3 +1,5 @@
+# Build using `docker build --secret id=.env -f Dockerfile.u -t jules:vn7.9 .`
+
 FROM jetpackio/devbox-root-user:latest
 
 # Copy files to container at /
@@ -11,9 +13,9 @@ RUN mv devbox.json devbox.lock setup.sh jules.sh /root/ && \
 # Install packages, run garbage collection & optimisations in nix-store
 RUN cd /root/ && devbox run -- hello && nix-store --gc && nix-store --optimise
 
-# Checkout Jules vn7.9 (rev 30414) and build
+# Checkout and build Jules vn7.9 (rev 30414)
 RUN --mount=type=secret,id=.env,target=/root/.env \
     cd /root/ && devbox run --env-file /root/.env setup -r 30414
 
-# Create entry point
-ENTRYPOINT ["devbox", "run"]
+# Create entry point to run jules automatically
+ENTRYPOINT ["devbox", "run", "jules"]
