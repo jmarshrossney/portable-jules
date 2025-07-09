@@ -24,8 +24,8 @@
   },
   "shell": {
     "init_hook": [
-      "export FCM_ROOT=$DEVBOX_PROJECT_ROOT/fcm",
-      "export JULES_ROOT=$DEVBOX_PROJECT_ROOT/jules",
+      "export FCM_ROOT=$DEVBOX_PROJECT_ROOT/_download/fcm",
+      "export JULES_ROOT=$DEVBOX_PROJECT_ROOT/_download/jules",
       "export JULES_BUILD_DIR=$DEVBOX_PROJECT_ROOT/_build",
       "export JULES_NETCDF=netcdf",
       "export JULES_NETCDF_PATH=$DEVBOX_PROJECT_ROOT/.devbox/nix/profile/default",
@@ -34,7 +34,6 @@
     "scripts": {
       "hello": "bash $DEVBOX_PROJECT_ROOT/scripts/hello.sh",
       "setup": "bash $DEVBOX_PROJECT_ROOT/scripts/setup.sh $@",
-      "build": "bash $DEVBOX_PROJECT_ROOT/scripts/build.sh",
       "jules": "bash $DEVBOX_PROJECT_ROOT/scripts/jules.sh $@",
       "loobos": "bash $DEVBOX_PROJECT_ROOT/scripts/jules.sh -d $DEVBOX_PROJECT_ROOT/examples/loobos $DEVBOX_PROJECT_ROOT/examples/loobos/config",
     },

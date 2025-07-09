@@ -5,6 +5,7 @@
 jules/
 fcm/
 _build/
+_download/
 
 # Computed outputs from examples
 examples/**/outputs
