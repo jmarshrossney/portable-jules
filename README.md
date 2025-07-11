@@ -32,7 +32,7 @@ The following approaches are supported, or planned to be supported:
 Clone the repository and navigate to the repository root directory:
 
 ```sh
-git clone https://github.com/jmarshrossney/portable-jules.git
+git clone https://github.com/NERC-CEH/portable-jules.git
 cd portable-jules
 ```
 
