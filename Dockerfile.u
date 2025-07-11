@@ -8,7 +8,7 @@
 # 	`udocker load -i jules_ud.tar.gz jules`
 #
 # Build container:
-# 	`udocker create --name=jules jules`
+# 	`udocker create --name=jules jules:vn7.9`
 #
 # Run container from run directory:
 # 	`udocker run -v=$(pwd):/root/run jules -d /root/run /root/run/config`

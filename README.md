@@ -288,13 +288,11 @@ docker save jules | gzip > jules.tar.gz
 3. Load into udocker - create an image called `jules`
 
 ```sh
-uv run udocker load -i jules.tar.gz jules
+udocker load -i jules.tar.gz jules
 ```
 NOTE: this can 'silently' fail. The output should look something like this:
 
 ```sh
-❯ uv run udocker load -i devbox-root-user.tar.gz devbox-root-user
-Info: adding layer: sha256:0b99a6bf584d36ef5ed44ae402f1e6318a822dd0559786a02e0aca6b83807402
 ...
 Info: adding layer: sha256:95a2005e07300a41ffbbb0aa02d8974f8f0c0331285db444288cc15da96d8613
 ['jules:latest']
@@ -303,8 +301,6 @@ Info: adding layer: sha256:95a2005e07300a41ffbbb0aa02d8974f8f0c0331285db444288cc
 and not this:
 
 ```sh
-❯ uv run udocker load -i minimal.tar.gz minimal
-Info: adding layer: sha256:f92d940c8ae8f16b5dbf079a4e21fefb5a1b4913ca076370e558dd0ebdba98ac
 ...
 Info: adding layer: sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef
 []
@@ -313,13 +309,13 @@ Info: adding layer: sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfa
 4. Create a container (you can run the image directly but it will create a container each time which is a waste of time and resources)
 
 ```sh
-uv run udocker create --name=jules jules
+udocker create --name=jules jules
 ```
 
 5. Run, while mounting the directories in a very specific way.
 
 ```sh
-❯ uv run udocker run -v=$(pwd)/examples/loobos:/root/run jules -d /root/run /root/run/config
+udocker run -v=$(pwd)/examples/loobos:/root/run jules -d /root/run /root/run/config
 ```
 
 Note that the working directory at run time will be `/root/`. You should bind the run directory to a new location in the container (e.g. `/root/run`) and then pass the absolute paths in the container as arguments, `-d RUN_DIR NAMELISTS_DIR`.
