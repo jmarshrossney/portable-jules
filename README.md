@@ -9,18 +9,18 @@ The [Joint UK Land Environment Simulator](https://jules.jchmr.org/) is a [land s
 Existing [documentation](https://jules-lsm.github.io/) and [tutorials](https://jules.jchmr.org/scratch) for JULES tends to assume that the user intends to run the model on one of a small number of supported HPC systems - usually [JASMIN](https://jasmin.ac.uk/) (NERC) or [Cray](https://www.metoffice.gov.uk/about-us/who-we-are/innovation/supercomputer) (Met Office) - using a particular suite of configuration and workflow management tools ([Rose](https://github.com/metomi/rose) and [Cylc](https://github.com/cylc)).
 
 
-This repository contains tools that simplify the process of setting up and running JULES on a standard personal computer running a Unix-based OS or on cloud-based services such as [DataLabs](https://datalab.datalabs.ceh.ac.uk/)., without extraneous tools and without making assumptions about the computing environment.
+This repository contains tools that simplify the process of setting up and running JULES on a standard personal computer running a Unix-based OS or on cloud-based services such as [DataLabs](https://datalab.datalabs.ceh.ac.uk/), without extraneous tools and without making assumptions about the computing environment.
 
 
 The following approaches are supported, or planned to be supported:
 
 | Method | `sudo` required during setup | `sudo` required to run | Status |
 | --- | --- | --- | --- |
-| Portable installation using Nix/Devbox | No (but more tricky without) | No | Done |
+| Portable installation using [Nix](https://nixos.org/) & [Devbox](https://www.jetify.com/devbox) | No (but more tricky without) | No | Done |
 | Installation using other package managers | Yes | No | Done |
-| Docker container | Yes | Yes | Done |
-| udocker-compatible container | Yes | No | Done |
-| Singularity/Apptainer container | Yes | No | Planned |
+| [Docker](https://www.docker.com/) container | Yes | Yes | Done |
+| [udocker](https://github.com/indigo-dc/udocker)-compatible container | Yes | No | Done |
+| [Singularity](https://sylabs.io/singularity/)/[Apptainer](https://apptainer.org/) container | Yes | No | Planned |
 
 
 > [!IMPORTANT]
