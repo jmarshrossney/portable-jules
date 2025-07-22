@@ -199,7 +199,6 @@ sudo apt install --yes \
 
 You will need to set some environment variables before running the setup script. For a 'basic' installation these will be:
 
-
 - `FCM_ROOT` : location to download FCM
 - `JULES_ROOT` : location to download JULES
 - `JULES_BUILD_DIR` : location for JULES build
@@ -208,29 +207,38 @@ You will need to set some environment variables before running the setup script.
 
 See the [JULES documentation](https://jules-lsm.github.io/latest/building-and-running/fcm.html#environment-variables-used-when-building-jules-using-fcm-make) for a full list of environment variables.
 
+It is convenient to store these in a file, as this example shows.
+
+```sh
+# .env
+FCM_ROOT=/path/to/portable-jules/_download/fcm
+JULES_ROOT=/path/to/portable-jules/_download/jules
+JULES_BUILD_DIR=/path/to/portable-jules/_build
+JULES_NETCDF=netcdf
+JULES_NETCDF_PATH=/usr  # works for ubuntu after apt installing netcdf
+JULES_REVISION=30414  # vn7.9
+
+# NOTE: omit MOSRS_PASSWORD to avoid exporting
+```
+
 Finally, you should be able to run the setup and run scripts in the usual way:
 
 ```bash
 # Make executable
 chmod +x setup.sh jules.sh  
 
-# CAUTION! Your MOSRS credentials are now accessible as environment variables!
-# Consider passing them as command line arguments instead
+set -a  # causes `source .env` to export all variables
 source .env
+set +a
 
 # Download and build
-./setup.sh
+./setup.sh -u <mosrs_username> -p '<mosrs_password>'
 
 # Run jules
 ./jules.sh -d /path/to/run_dir /path/to/namelists_dir
 ```
 
-You might consider passing your MOSRS credentials as command-line arguments to `setup.sh` instead of sourcing the `.env` file.
-
-```bash
-./setup.sh -u <username> -p '<password>'
-```
-
+You might consider passing your MOSRS credentials as command-line arguments to `setup.sh` instead of keeping them in the `.env` file, to avoid making them globally available as environment variables.
 Note the use of single quotation marks, which ensures the password is treated as a literal string, so any illegal characters don't mess things up.
 
 
