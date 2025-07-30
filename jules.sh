@@ -53,7 +53,7 @@ run_jules() {
     # Extract output dir (hard-coded into output.nml)
     # TODO: should attempt to check if relative or absolute!
     cd "$namelist_abspath"
-    output_dir=$(grep "output_dir" output.nml | sed -E "s/output_dir\s*=\s*'([^']*)'.*/\1/")
+    output_dir=$(grep "output_dir" output.nml | sed -E "s/^[ \t]*output_dir\s*=\s*'([^']*)'.*/\1/")
     
     echo "Changing directory to $exec_abspath"
     cd "$exec_abspath"
