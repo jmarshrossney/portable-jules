@@ -89,35 +89,41 @@ Note that all `devbox` commands should be run in the repository root.
 The simplest way to run a JULES simulation using `portable-jules` is to run the following in any subdirectory of the `portable-jules` repository root,
 
 ```bash
-devbox run jules path/to/namelist_dir
+devbox run jules path/to/exec_dir
 ```
 
-Under the hood, this will `cd` to `namelist_dir` and run `jules.exe > stdout.log 2> stderr.log`.
+Under the hood, this will `cd` to `exec_dir` and run `jules.exe > stdout.log 2> stderr.log`.
 (See `jules.sh` for further details.)
 
-One can also specify an alternative working directory using the `-d` flag,
+The above will only work if `exec_dir` contains the [namelist files](https://jules-lsm.github.io/latest/namelists/contents.html)  (`*.nml`). If the namelist files are instead in a subdirectory of `exec_dir` (which is recommended) then this can be specified using the `-n` option.
 
 ```bash
-devbox run jules -d path/to/run_dir path/to/namelist_dir
+devbox run jules -n namelists path/to/exec_dir
 ```
 
+In this example, the namelist files are located in `exec_dir/namelists/`.
+
 > [!TIP]
-> All relative paths specified in the namelist (`.nml`) files are relative to the working directory, _not_ the namelist file itself.
+> All relative paths specified in the namelist files are relative to `exec_dir` and _not_ the location of the namelist file itself.
+
+Attempting to pass an absolute path with `-n` will trigger an error. This is by design; locating the namelist files outside of `exec_dir` is strongly discouraged.
 
 
 ### Parallel simulations
 
-It is possible to fire off several JULES runs at once using [GNU Parallel](https://www.gnu.org/software/parallel/) by providing multiple namelist directories,
+It is possible to fire off several JULES runs at once using [GNU Parallel](https://www.gnu.org/software/parallel/) by providing multiple values for `exec_dir`,
 
 ```bash
-# Specify individual namelist directories...
-devbox run jules path/to/namelists_1 path/to/namelists_2 ...
+# Specify individual exec directories...
+devbox run jules -n namelists path/to/exec_1 path/to/exec_2 ...
 
 # ...or use a wildcard
-devbox run jules path/to/dir_of_namelist_dirs/*
+devbox run jules -n namelists path/to/dir_of_exec_dirs/*
 ```
 
 This is useful for running large ensembles of 1+1 dimensional 'point' simulations, which includes gridded simulations that are completely decoupled in the spatial dimensions.
+
+Note that `-n namelists` is shared by all parallel runs, so each `exec_dir_i` must have its own set of namelist files located in `exec_dir_i/namelists/` execution directories.
 
 
 ### In other projects
@@ -125,10 +131,10 @@ This is useful for running large ensembles of 1+1 dimensional 'point' simulation
 To execute the `devbox run jules` command from a different directory, one can specify the devbox config explicitly, as in
 
 ```bash
-devbox run -c path/to/portable-jules/devbox.json jules -d $(pwd) $(pwd)/path/to/namelist_dir
+devbox run -c path/to/portable-jules/devbox.json jules -n namelists $(pwd)
 ```
 
-Note that the command (`jules -d ...`) will actually be run from the directory where `devbox.json` lives. This is a feature/limitation of devbox (see e.g. [this issue](https://github.com/jetify-com/devbox/issues/2559)). Hence, you will need to be careful with provide paths to the run and namelist directories.
+Note that the command (`jules -n namelists $(pwd)`) will actually be run from the directory where `devbox.json` lives. This is a feature/limitation of devbox (see e.g. [this issue](https://github.com/jetify-com/devbox/issues/2559)). Hence, you will need to provide the path to `exec_dir` even if it is your current working directory.
 
 
 ### Installation without root privileges
